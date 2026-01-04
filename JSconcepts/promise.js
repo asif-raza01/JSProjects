@@ -13,7 +13,7 @@ const simranPromise=new Promise((resolve,reject)=>{
 
 
 //handling the promise
-
+//now instead of catch we can also use multiple promise and that process is called promise chaining
 simranPromise.then((message)=>{
     console.log(`message from promise ${message}`);
     console.log("yay babyyy");
