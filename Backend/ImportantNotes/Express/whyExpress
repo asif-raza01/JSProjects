@@ -1,1 +1,11 @@
+instead of using native programming language directly we use something called framework to 
+1.maintain minimum code quality so that diffetrent people can understand it better 
+2.to maintain project structure
+3.to facilitate easy collabration
+4.boiler plate code can be avoided 
 
+so to build restful apis we use express a web framework for nodejs
+1.It is flexible
+2.It is light weight
+3.It is simple
+4.routing,middleware,http handling become super simple
