@@ -82,3 +82,103 @@ function outer(){
 (function hey(){
     console.log("hey");
 })();
+
+
+let multiply=(a,b)=>{
+    return a*b;
+}
+
+function total(...args){
+    let sum=0;
+    for(let i=0;i<args.length;i++){
+        sum+=args[i];
+    }
+    return sum;
+}
+
+let ans=total(1,2,3,4,5,6,7,8,9,10);
+console.log(ans); //55 because we are passing 10 arguments to the function and it is returning the sum of all the arguments
+
+
+function discountCalculator(discount){
+    return function(price){
+        return price-(price*discount/100);
+    }
+}
+
+let discount10=discountCalculator(10);
+console.log(discount10(1000)); //900 because we are passing 1000 as price and 10 as discount to the function and it is returning the discounted price
+let discount20=discountCalculator(20);
+console.log(discount20(1000)); //800 because we are passing 1000 as price and 20 as discount to the function and it is returning the discounted price
+
+
+let arr=[2,5,1,8,4];
+arr.sort(function(a,b){
+    return a-b;
+})
+
+let arr2=[2,3,4,5,67,8,10];
+ arr2.forEach(function(val,index){
+    console.log(`the value at index ${index} is ${val}`);
+ })
+
+ //map kiya krta hai ek naya array return krta hai jisme ki humne jo function pass kiya hai uske according values hoti hain
+ let newarr2=arr2.map(function(val){
+    return 12;
+ })
+ console.log(newarr2); //[12, 12, 12, 12, 12, 12, 12] because we are returning 12 for each element in the array
+ //map dhikte hi dimaag m ajana chahiye ki naya array bnega
+
+ //filter nye array me filtered value return krta hai true or false k according
+ let newarr3=arr2.filter(function(val){
+    if(val>4) return true;
+ })
+ console.log(newarr3); //[5, 67, 8, 10] because we are returning true for values greater than 4
+
+ //reduce now we use reduce jab humein ek array ki saari values to milakr ek single value return krni hoti hai
+ let newarr4=arr2.reduce(function(accumulator,val){
+    return accumulator+val;//yhn se jo return value hai wo accumulator m store hogi
+ },0); // ab dekh yhn accumalator ek variable hai jo baar baar chlne pr apmni value yaad rkhta hai 
+ //and val array ki current value hai jo ki humare function m pass ho rhi hai
+ //or ye jo hummne 0 pass kiya hai wo initial value hai accumulator ki like accumulator=0(kuch b bhi ho skta hai) and then accumulator=accumulator+val
+
+
+ let va=arr2.find(function(val){
+    return val>4;
+ })
+ console.log(va); //5 because find returns the first value that satisfies the condition
+
+ let any=arr2.some(function(val){
+    return val>4;
+ })
+ console.log(any); //true because some returns true if at least one value satisfies the condition
+
+ let all=arr2.every(function(val){
+    return val>4;
+ })
+ console.log(all); //false because every returns true only if all values satisfy the condition
+
+ //destructuring
+ let [p,r,,q]=arr2; //array destructuring
+ console.log(p,r,q); //2 3 5 because we are destructuring the array and assigning the values to variables p, r and q
+
+ let arr5=arr2;//now arr5 and arr2 are pointing to the same array in memory mtln copy nhi but reference create hogya
+ let arr6=[...arr2];//now arr6 is a new array with the same values as arr2 but it is a copy of arr2 and not a reference to arr2
+
+ //splice original array se values ko remove krta hai or usi array m krta hai but it does not return a new array
+ //slice original array se values ko remove krta hai aur new array return krta hai but it does not change the original array
+
+ let obj={
+    name:"Asif",
+    rollno: 7,
+    place:"Delhi",
+    Height:6.1
+ }
+
+ console.log(obj.name); //Asif because we are accessing the name property of the object
+ console.log(obj.rollno); //7 because we are accessing the rollno property of the object using bracket notation
+
+//dekh ab hum ye  hi krskte
+let aa="name";
+console.log(obj.aa); //undefined because we are trying to access the property aa of the object which does not exist
+console.log(obj[aa]); //Asif because we are accessing the property name of the object using bracket notation and the value of aa is "name"
